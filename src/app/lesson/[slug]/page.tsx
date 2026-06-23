@@ -15,7 +15,7 @@ export default async function LessonsPage({
   const lessons = await getLessonsByFilter(
     filters.board ? Number(filters.board) : undefined,
     filters.grade ? Number(filters.grade) : undefined,
-    filters.type
+    filters.type ? Number(filters.type) : undefined
   );
 
   return (
