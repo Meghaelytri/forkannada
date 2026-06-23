@@ -1,69 +1,70 @@
 import BoardCard from "./board-card";
 
-
 const boards = [
   {
+    id: 1,
     name: "State",
     description:
-      "Karnataka State syllabus Kannada learning"
+      "Karnataka State syllabus Kannada learning",
   },
 
   {
+    id: 2,
     name: "CBSE",
     description:
-      "CBSE Kannada lessons and resources"
+      "CBSE Kannada lessons and resources",
   },
 
   {
+    id: 3,
     name: "ICSE",
     description:
-      "ICSE Kannada learning materials"
+      "ICSE Kannada learning materials",
   },
 ];
 
 
-export default function BoardSection(){
+export default function BoardSection() {
 
-return (
+  return (
 
-<section className="py-16 px-6">
+    <section className="py-16 px-6">
 
-<div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto">
 
-
-<h2 className="text-4xl font-bold mb-8">
-Choose Your Syllabus
-</h2>
-
-
-<div className="grid md:grid-cols-3 gap-6">
+        <h2 className="text-4xl font-bold mb-8">
+          Choose Your Syllabus
+        </h2>
 
 
-{
-boards.map((board)=>(
-  
-<BoardCard
+        <div className="grid md:grid-cols-3 gap-6">
 
-key={board.name}
+          {
+            boards.map((board) => (
 
-name={board.name}
+              <BoardCard
 
-description={board.description}
+                key={board.id}
 
-/>
+                id={board.id}
 
-))
+                name={board.name}
 
-}
+                description={board.description}
+
+              />
+
+            ))
+          }
 
 
-</div>
+        </div>
 
 
-</div>
+      </div>
 
-</section>
+    </section>
 
-)
+  );
 
 }
