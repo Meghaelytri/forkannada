@@ -1,201 +1,130 @@
-const API_URL = "http://forkannada.local/wp-json/wp/v2";
+const API_URL = process.env.WORDPRESS_API_URL ?? "http://forkannada.local/wp-json/wp/v2";
 
-
-// Get all lessons
 export async function getLessons() {
-
-  const response = await fetch(
-    `${API_URL}/lesson?_embed`,
-    {
-      cache: "no-store",
-    }
-  );
-
+  const response = await fetch(`${API_URL}/lesson?_embed`, {
+    cache: "no-store",
+  });
 
   if (!response.ok) {
-
     throw new Error("Failed to fetch lessons");
-
   }
-
 
   return response.json();
-
 }
 
-
-
-// Get single lesson by slug
 export async function getLessonBySlug(slug: string) {
-
-  const response = await fetch(
-
-    `${API_URL}/lesson?slug=${slug}&_embed`,
-
-    {
-      cache: "no-store",
-    }
-
-  );
-
+  const response = await fetch(`${API_URL}/lesson?slug=${slug}&_embed`, {
+    cache: "no-store",
+  });
 
   if (!response.ok) {
-
     throw new Error("Failed to fetch lesson");
-
   }
-
 
   const lessons = await response.json();
-
-
-
-  if (!lessons.length) {
-
-    return null;
-
-  }
-
-
-
-  return lessons[0];
-
+  return lessons?.[0] ?? null;
 }
 
-
-
-// Get boards (State, CBSE, ICSE)
 export async function getBoards() {
-
-  const response = await fetch(
-
-    `${API_URL}/board`,
-
-    {
-      cache: "no-store",
-    }
-
-  );
-
+  const response = await fetch(`${API_URL}/board`, {
+    cache: "no-store",
+  });
 
   if (!response.ok) {
-
     throw new Error("Failed to fetch boards");
-
   }
 
-
   return response.json();
-
 }
 
-
-
-// Get grades (Class 1 - Class 12)
 export async function getGrades() {
-
-  const response = await fetch(
-
-    `${API_URL}/grade`,
-
-    {
-      cache: "no-store",
-    }
-
-  );
-
+  const response = await fetch(`${API_URL}/grade`, {
+    cache: "no-store",
+  });
 
   if (!response.ok) {
-
     throw new Error("Failed to fetch grades");
-
   }
 
-
   return response.json();
-
 }
 
-
-
-// Get lesson types (Grammar, Story, Worksheet...)
 export async function getLessonTypes() {
-
-  const response = await fetch(
-
-    `${API_URL}/lesson_type`,
-
-    {
-      cache: "no-store",
-    }
-
-  );
-
+  const response = await fetch(`${API_URL}/lesson_type`, {
+    cache: "no-store",
+  });
 
   if (!response.ok) {
-
     throw new Error("Failed to fetch lesson types");
-
   }
 
-
   return response.json();
-
 }
 
-export async function getLessonsByFilter(
-  board?: number,
-  grade?: number,
-  type?: number
-){
+type LessonFilters = {
+  board?: string | number;
+  grade?: string | number;
+  type?: string;
+  search?: string;
+};
 
-let url = `${API_URL}/lesson?_embed`;
+export async function getLessonsByFilter(filters: LessonFilters = {}) {
+  const lessons = await getLessons();
 
+  const board = normalizeFilterValue(filters.board);
+  const grade = normalizeFilterValue(filters.grade);
+  const type = normalizeFilterValue(filters.type);
+  const search = normalizeFilterValue(filters.search);
 
-if(board){
+  return lessons.filter((lesson: any) => {
+    const terms = lesson._embedded?.["wp:term"]?.flat() || [];
+    const lessonBoard = terms.find((term: any) => term.taxonomy === "board");
+    const lessonGrade = terms.find((term: any) => term.taxonomy === "grade");
+    const lessonType = terms.find((term: any) => term.taxonomy === "lesson_type");
+    const title = stripHtml(lesson.title?.rendered || "");
+    const content = stripHtml(lesson.content?.rendered || "");
 
-url += `&board=${board}`;
+    const matchesBoard = !board || matchesTerm(lessonBoard, board);
+    const matchesGrade = !grade || matchesTerm(lessonGrade, grade);
+    const matchesType = !type || matchesTypeTerm(lessonType, type);
+    const matchesSearch =
+      !search || title.toLowerCase().includes(search) || content.toLowerCase().includes(search);
 
+    return matchesBoard && matchesGrade && matchesType && matchesSearch;
+  });
 }
 
-
-if(grade){
-
-url += `&grade=${grade}`;
-
+function normalizeFilterValue(value?: string | number) {
+  if (value === undefined || value === null || value === "") return "";
+  return String(value).trim().toLowerCase();
 }
 
-
-if(type){
-
-url += `&lesson_type=${type}`;
-
+function matchesTerm(term: any, filter: string) {
+  if (!term) return false;
+  return String(term.id) === filter || normalizeTermValue(term.slug) === filter || normalizeTermValue(term.name) === filter;
 }
 
-
-
-const response = await fetch(
-
-url,
-
-{
-cache:"no-store"
+function matchesTypeTerm(term: any, filter: string) {
+  if (!term) return false;
+  return matchesTerm(term, filter);
 }
 
-);
-
-
-
-if(!response.ok){
-
-throw new Error(
-"Failed to fetch filtered lessons"
-);
-
+function normalizeTermValue(value: string) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
-
-
-return response.json();
-
+function stripHtml(value: string) {
+  return String(value || "")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
 }

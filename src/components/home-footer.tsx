@@ -16,19 +16,19 @@ export default function HomeFooter() {
         <h6>Learn</h6>
         <ul>
           <li><a href="/lessons">Curriculum</a></li>
-          <li><a href="/lessons?type=worksheets">Worksheets</a></li>
+          <li><a href="/lessons?type=worksheet">Worksheets</a></li>
           <li><a href="/lessons?type=gadegalu">Gadegalu</a></li>
-          <li><a href="/lessons?type=essays">Essays</a></li>
+          <li><a href="/lessons?type=essay">Essays</a></li>
         </ul>
       </div>
 
       <div>
         <h6>Tools</h6>
         <ul>
-          <li><a href="/lessons?type=letters">Letter templates</a></li>
+          <li><a href="/lessons?type=letter">Letter templates</a></li>
           <li><a href="/lessons?type=grammar">Grammar</a></li>
-          <li><a href="/lessons">Q-Papers</a></li>
-          <li><a href="/lessons">Q&amp;A Forum</a></li>
+          <li><a href="/lessons?type=question-paper">Q-Papers</a></li>
+          <li><a href="/lessons?type=story">Q&A Forum</a></li>
         </ul>
       </div>
 

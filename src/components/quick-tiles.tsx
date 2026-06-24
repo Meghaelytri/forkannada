@@ -1,10 +1,10 @@
 const tiles = [
-  { icon: "ಪ", name: "Worksheets", count: "Printable packs", href: "/lessons?type=worksheets" },
+  { icon: "ಪ", name: "Worksheets", count: "Printable packs", href: "/lessons?type=worksheet" },
   { icon: "★", name: "Gadegalu", count: "200+ proverbs", href: "/lessons?type=gadegalu", feature: true },
-  { icon: "ಲ", name: "Letters", count: "Templates", href: "/lessons?type=letters" },
-  { icon: "ಬ", name: "Essays", count: "By topic", href: "/lessons?type=essays" },
+  { icon: "ಲ", name: "Letters", count: "Templates", href: "/lessons?type=letter" },
+  { icon: "ಬ", name: "Essays", count: "By topic", href: "/lessons?type=essay" },
   { icon: "ಅ", name: "Grammar", count: "Basics", href: "/lessons?type=grammar" },
-  { icon: "ಪ್ರ", name: "Q-Papers", count: "Practice", href: "/lessons?type=question-papers" },
+  { icon: "ಪ್ರ", name: "Q-Papers", count: "Practice", href: "/lessons?type=question-paper" },
 ];
 
 export default function QuickTiles() {
