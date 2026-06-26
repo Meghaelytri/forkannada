@@ -1,14 +1,14 @@
 const grades = [
-  "Class 1",
-  "Class 2",
-  "Class 3",
-  "Class 4",
-  "Class 5",
-  "Class 6",
-  "Class 7",
-  "Class 8",
-  "Class 9",
-  "Class 10",
+  "class-1",
+  "class-2",
+  "class-3",
+  "class-4",
+  "class-5",
+  "class-6",
+  "class-7",
+  "class-8",
+  "class-9",
+  "class-10",
 ];
 
 export default function HomePicker() {
@@ -31,8 +31,8 @@ export default function HomePicker() {
         </label>
         <select className="field" id="grade" name="grade" defaultValue="class-6">
           {grades.map((grade) => (
-            <option key={grade} value={grade.toLowerCase().replace(" ", "-")}>
-              {grade}
+            <option key={grade} value={grade}>
+              {grade.replace("-", " ").replace(/\b\w/g, (char) => char.toUpperCase())}
             </option>
           ))}
         </select>

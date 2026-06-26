@@ -1,5 +1,7 @@
-import { getLessonsByFilter } from "@/lib/wordpress";
+import Header from "@/components/header";
+import HomeFooter from "@/components/home-footer";
 import LessonCard from "@/components/lesson-card";
+import { getLessonsByFilter } from "@/lib/wordpress";
 
 export default async function LessonsPage({
   searchParams,
@@ -8,35 +10,36 @@ export default async function LessonsPage({
     board?: string;
     grade?: string;
     type?: string;
+    search?: string;
   }>;
 }) {
-
   const filters = await searchParams;
-
-  const lessons = await getLessonsByFilter(
-    filters.board ? Number(filters.board) : undefined,
-    filters.grade ? Number(filters.grade) : undefined,
-    filters.type ? Number(filters.type) : undefined
-  );
+  const lessons = await getLessonsByFilter({
+    board: filters.board,
+    grade: filters.grade,
+    type: filters.type,
+    search: filters.search,
+  });
 
   return (
-    <main className="max-w-7xl mx-auto p-8">
+    <main className="fk-page">
+      <Header />
+      <section className="lessons-shell">
+        <div className="lessons-head">
+          <div>
+            <p className="meta">Filtered lessons</p>
+            <h1>Lessons</h1>
+          </div>
+          <p className="lessons-summary">{lessons.length} lesson{lessons.length === 1 ? "" : "s"} found</p>
+        </div>
 
-      <h1 className="text-4xl font-bold mb-8">
-        Lessons
-      </h1>
-
-      <div className="grid md:grid-cols-3 gap-6">
-
-        {lessons.map((lesson:any)=>(
-          <LessonCard
-            key={lesson.id}
-            lesson={lesson}
-          />
-        ))}
-
-      </div>
-
+        <div className="lessons-grid">
+          {lessons.map((lesson: any) => (
+            <LessonCard key={lesson.id} lesson={lesson} />
+          ))}
+        </div>
+      </section>
+      <HomeFooter />
     </main>
   );
 }

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "migrate:lessons": "node scripts/migrate-lessons.mjs"
   },
   "dependencies": {
     "next": "16.2.9",
