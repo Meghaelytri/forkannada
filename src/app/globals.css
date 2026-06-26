@@ -2063,7 +2063,11 @@ select {
 
 /* ── Responsive ─────────────────────────── */
 @media (max-width: 900px) {
-  .page-frame { margin: 0; border-radius: 0; }
+  .page-frame {
+     margin: 0; 
+    border-radius: 0;
+    width:0px;
+   }
 
   
 @media (max-width: 720px) {
