@@ -49,6 +49,9 @@ export default function Header() {
             <a className="on" href="/lessons" onClick={() => setOpen(false)}>
               Curriculum
             </a>
+            <a href="/chapter" onClick={() => setOpen(false)}>
+              Chapter
+            </a>
             <a href="/lessons?type=worksheet" onClick={() => setOpen(false)}>
               Worksheets
             </a>
