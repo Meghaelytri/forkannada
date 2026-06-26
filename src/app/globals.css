@@ -69,6 +69,7 @@ select {
 .site-header {
   padding: 20px;
   position: relative;
+  z-index:9999;
 }
 
 .site-nav {
@@ -781,7 +782,7 @@ select {
   pointer-events: none;
   position: fixed;
   transition: opacity 0.2s ease;
-  z-index: 30;
+  z-index: 9998;
 }
 
 .nav-backdrop.is-open {
@@ -1032,530 +1033,10 @@ select {
 
 
 
-/* Chapter page
-.chapter-screen {
-  background:
-    radial-gradient(circle at 5% 10%, var(--yellow) 0, transparent 1.4px),
-    radial-gradient(circle at 80% 30%, var(--red) 0, transparent 1.2px),
-    radial-gradient(circle at 30% 60%, var(--red) 0, transparent 1px),
-    radial-gradient(circle at 70% 90%, var(--yellow) 0, transparent 1.2px),
-    linear-gradient(180deg, var(--butter-soft), var(--butter));
-  background-size:
-    80px 80px,
-    100px 100px,
-    60px 60px,
-    90px 90px,
-    auto;
-}
+/* This code only for Chapter page */
 
-.chapter-page {
-  margin: 0 auto;
-  max-width: 1156px;
-  padding: 8px 20px 44px;
-}
-
-.fk-breadcrumb {
-  color: var(--muted);
-  display: flex;
-  flex-wrap: wrap;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
-  font-weight: 500;
-  gap: 8px;
-  letter-spacing: 0.08em;
-  margin: 0 20px 12px;
-  text-transform: uppercase;
-}
-
-.fk-breadcrumb a:hover {
-  color: var(--red);
-}
-
-.ch-hero {
-  background: var(--paper);
-  border: 3px solid var(--ink);
-  border-radius: 24px;
-  box-shadow: var(--shadow-4);
-  margin: 0 20px 24px;
-  overflow: hidden;
-  padding: 36px 36px 0;
-  position: relative;
-}
-
-.ch-meta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 18px;
-  max-width: calc(100% - 130px);
-}
-
-.pill--soft {
-  background: var(--red-soft);
-  border-color: var(--red);
-  color: var(--red-deep);
-}
-
-.pill--yellow {
-  background: var(--yellow);
-  color: var(--ink);
-}
-
-.pill--blue {
-  background: var(--blue);
-  color: white;
-}
-
-.pill--green {
-  background: var(--green);
-  color: white;
-}
-
-.ch-title-kn {
-  color: var(--ink);
-  font-family: var(--font-kannada), sans-serif;
-  font-size: clamp(56px, 8vw, 80px);
-  font-weight: 800;
-  letter-spacing: 0;
-  line-height: 0.95;
-  margin: 0 130px 6px 0;
-}
-
-.ch-title-en {
-  color: var(--ink);
-  font-family: var(--font-display), var(--font-jakarta), sans-serif;
-  font-size: 32px;
-  font-weight: 500;
-  margin-bottom: 24px;
-}
-
-.ch-actions {
-  border-bottom: 2px dashed var(--muted-soft);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding-bottom: 24px;
-}
-
-.btn--primary {
-  background: var(--red);
-  color: white;
-}
-
-.btn--accent {
-  background: var(--yellow);
-  color: var(--ink);
-}
-
-.btn--light,
-.btn--ghost {
-  background: var(--paper);
-  color: var(--ink);
-}
-
-.btn--ghost {
-  box-shadow: none;
-}
-
-.btn--sm {
-  font-size: 12px;
-  padding: 8px 12px;
-}
-
-.ch-akki {
-  height: 110px;
-  position: absolute;
-  right: 36px;
-  top: 32px;
-  width: 110px;
-}
-
-.ch-tabs-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 0 36px 24px;
-}
-
-.tab {
-  background: var(--paper);
-  border: 2px solid var(--ink);
-  border-radius: 999px;
-  color: var(--ink);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 9px 18px;
-}
-
-.tab.on {
-  background: var(--ink);
-  color: var(--butter);
-}
-
-.text-size-tab {
-  margin-left: auto;
-}
-
-.ch-body {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  padding: 0 36px 36px;
-}
-
-.ch-content {
-  color: var(--ink);
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.ch-content .lead {
-  background: var(--yellow-soft);
-  border-left: 4px solid var(--yellow);
-  border-radius: 0 12px 12px 0;
-  color: var(--ink);
-  font-family: var(--font-kannada), sans-serif;
-  font-size: 20px;
-  line-height: 1.6;
-  margin-bottom: 24px;
-  padding: 20px;
-}
-
-.ch-content h2 {
-  font-family: var(--font-display), var(--font-jakarta), sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1.15;
-  margin: 24px 0 12px;
-}
-
-.ch-content p {
-  margin: 0 0 14px;
-}
-
-.kn-body {
-  font-family: var(--font-kannada), sans-serif;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.muted-heading {
-  color: var(--muted);
-  font-size: 18px;
-}
-
-.qa-block {
-  background: var(--butter-soft);
-  border: 2px solid var(--ink);
-  border-radius: 18px;
-  margin: 20px 0;
-  padding: 20px 24px;
-}
-
-.qa-block h3 {
-  align-items: center;
-  color: var(--ink);
-  display: flex;
-  font-family: var(--font-display), var(--font-jakarta), sans-serif;
-  font-size: 17px;
-  font-weight: 500;
-  gap: 8px;
-  line-height: 1.25;
-  margin: 0 0 8px;
-}
-
-.qa-block h3::before {
-  align-items: center;
-  background: var(--red);
-  border-radius: 50%;
-  color: white;
-  content: "Q";
-  display: inline-flex;
-  flex: 0 0 24px;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 12px;
-  font-weight: 700;
-  height: 24px;
-  justify-content: center;
-  width: 24px;
-}
-
-.qa-block p {
-  color: var(--ink-soft);
-  font-size: 15px;
-  margin-left: 32px;
-}
-
-.vocab {
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.ch-side {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.ch-audio {
-  background: var(--yellow);
-  border: 2px solid var(--ink);
-  border-radius: 18px;
-  box-shadow: var(--shadow-2);
-  padding: 24px;
-}
-
-.ch-audio h2,
-.ch-side-card h2 {
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin: 0 0 8px;
-  text-transform: uppercase;
-}
-
-.ch-audio h2 {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-}
-
-.akki-xs {
-  height: 28px;
-  width: 28px;
-}
-
-.ch-audio p {
-  color: var(--ink);
-  font-size: 13px;
-  margin: 0 0 14px;
-}
-
-.ch-audio-row {
-  align-items: center;
-  background: var(--ink);
-  border-radius: 12px;
-  color: var(--butter);
-  display: flex;
-  gap: 12px;
-  padding: 12px;
-}
-
-.play-btn {
-  align-items: center;
-  background: var(--red);
-  border: 2px solid var(--butter);
-  border-radius: 50%;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  flex: 0 0 44px;
-  font-size: 14px;
-  height: 44px;
-  justify-content: center;
-  width: 44px;
-}
-
-.ch-audio-meta {
-  flex: 1;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
-}
-
-.ch-audio-meta strong {
-  color: var(--butter);
-  display: block;
-  font-family: var(--font-display), var(--font-jakarta), sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 2px;
-}
-
-.ch-audio-prog {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  height: 4px;
-  margin-top: 6px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.ch-audio-prog::after {
-  background: var(--red);
-  bottom: 0;
-  content: "";
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 35%;
-}
-
-.ch-side-card {
-  background: var(--paper);
-  border: 2px solid var(--ink);
-  border-radius: 18px;
-  box-shadow: var(--shadow-2);
-  padding: 20px;
-}
-
-.ch-side-card h2 {
-  border-bottom: 1px dashed var(--line);
-  color: var(--red);
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-}
-
-.next-kn {
-  font-family: var(--font-kannada), sans-serif;
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.next-en {
-  font-family: var(--font-display), var(--font-jakarta), sans-serif;
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.next-meta {
-  color: var(--muted);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
-  margin-bottom: 14px;
-}
-
-.ch-side-card ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.ch-side-card li {
-  border-bottom: 1px dashed var(--line);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 0;
-}
-
-.ch-side-card li:last-child {
-  border-bottom: 0;
-}
-
-@media (max-width: 1100px) {
-  .ch-body {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 720px) {
-  .chapter-page {
-    padding: 0 12px 28px;
-  }
-
-  .fk-breadcrumb {
-    margin: 0 4px 10px;
-  }
-
-  .ch-hero {
-    margin: 0 0 18px;
-    padding: 24px 18px 0;
-  }
-
-  .ch-meta-row,
-  .ch-title-kn {
-    margin-right: 0;
-    max-width: none;
-  }
-
-  .ch-title-kn {
-    font-size: 54px;
-  }
-
-  .ch-title-en {
-    font-size: 26px;
-  }
-
-  .ch-akki {
-    height: 78px;
-    opacity: 0.95;
-    right: 18px;
-    top: 74px;
-    width: 78px;
-  }
-
-  .ch-actions {
-    padding-right: 0;
-  }
-
-  .ch-tabs-wrap {
-    flex-wrap: nowrap;
-    margin: 0 -12px;
-    overflow-x: auto;
-    padding: 0 12px 18px;
-  }
-
-  .tab {
-    flex: 0 0 auto;
-    font-size: 12px;
-    padding: 8px 14px;
-    white-space: nowrap;
-  }
-
-  .text-size-tab {
-    margin-left: 0;
-  }
-
-  .ch-body {
-    gap: 18px;
-    padding: 0 0 28px;
-  }
-
-  .ch-content .lead {
-    font-size: 17px;
-    padding: 16px;
-  }
-
-  .qa-block {
-    padding: 18px;
-  }
-
-  .qa-block p {
-    margin-left: 0;
-  }
-} */
-
-
-/* here my own code for chapter page */
-
-/* ─────────────────────────────────────────────
-   CHAPTER PAGE STYLES
-   Add these into your existing globals.css
-   (after your existing rules)
-───────────────────────────────────────────── */
-
-/* Design tokens – only add if not already present */
 :root {
-  /* --butter: #fff6d6;
-  --butter-soft: #fffaea;
-  --paper: #ffffff;
-  --ink: #1f1610;
-  --ink-soft: #443a2f;
-  --muted: #7e7062;
-  --muted-soft: #baaa8c;
-  --line: #f0e4b8;
-  --red: #fc261c;
-  --red-soft: #ffe3e0;
-  --red-deep: #c7170f;
-  --yellow: #ffd400;
-  --yellow-soft: #fff1a8;
-  --green: #34a853;
-  --blue: #4285f4; */
+
   --display: "Boldonse", "Plus Jakarta Sans", sans-serif;
   --body: "Plus Jakarta Sans", system-ui, sans-serif;
   --mono: "Geist Mono", monospace;
@@ -1564,10 +1045,7 @@ select {
   --r-3: 18px;
   --r-4: 24px;
   --r-pill: 999px;
-   /* --shadow-1: 2px 2px 0 var(--ink);
-  --shadow-2: 3px 3px 0 var(--ink);
-  --shadow-3: 4px 4px 0 var(--ink);
-  --shadow-4: 6px 6px 0 var(--ink); */
+  
 } 
 
 /* Page wrapper */
@@ -1577,7 +1055,7 @@ select {
   margin: 0 auto;
   border-radius: var(--r-4);
   overflow: hidden;
-
+/* overflow:visible */
 }
 
 /* Full-page background with dot pattern */
@@ -1605,8 +1083,8 @@ select {
 }
 
 .fk > * {
-  position: relative;
-  z-index: 1;
+  /* position: relative;
+  z-index: 1; */
 }
 
 /* Nav */
@@ -1715,6 +1193,7 @@ select {
   box-shadow: var(--shadow-4);
   overflow: hidden;
   position: relative;
+  /* z-index:1; */
 }
 
 .ch-meta-row,
@@ -1802,11 +1281,6 @@ select {
   height: 110px;
 }
 
-/* Tab bar */
-/* .ch-tabs-wrap {
-  padding: 24px 36px;
-  align-items: center;
-} */
 
 .ch-tabs-wrap {
   display: flex;
@@ -2076,6 +1550,8 @@ select {
 
   .site-nav {
     gap: 12px;
+    position: relative;
+  z-index: 9999;
   }
 
   .nav-links,
@@ -2101,7 +1577,7 @@ select {
     transform: translateX(-105%);
     transition: transform 0.22s ease;
     width: min(82vw, 320px);
-    z-index: 40;
+    /* z-index: 10001; */
   }
 
   .site-drawer.is-open {
