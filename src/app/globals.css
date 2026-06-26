@@ -2049,7 +2049,6 @@ select {
   font-family: var(--mono);
   font-size: 11px;
 }
-
 .ch-side-card ul { margin: 0; padding: 0; list-style: none; }
 
 .ch-side-card li {
@@ -2066,9 +2065,9 @@ select {
   .page-frame {
      margin: 0; 
     border-radius: 0;
-    width:0px;
+    width: 100%;
    }
-
+  }
   
 @media (max-width: 720px) {
   .nav-toggle {
@@ -2177,7 +2176,7 @@ select {
   .tab { padding: 9px 13px; font-size: 12px; }
 
   .lead { font-size: 17px; }
-}
+
 
   .lesson-card-footer,
   .footer-row {
