@@ -53,6 +53,9 @@ export default function Header() {
             <a href="/chapter" onClick={() => setOpen(false)}>
               Chapter
             </a>
+            <a href="/gradehub" onClick={() => setOpen(false)}>
+              Grade Hub
+            </a>
             <a href="/lessons?type=worksheet" onClick={() => setOpen(false)}>
               Worksheets
             </a>

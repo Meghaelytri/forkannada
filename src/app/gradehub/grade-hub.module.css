@@ -1,0 +1,496 @@
+
+
+.page {
+  background: var(--butter);
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--ink);
+}
+
+.breadcrumb span {
+  color: var(--muted-soft);
+}
+
+/* Hero Card */
+.heroSection {
+  /* padding: 0 1.5rem 1.5rem; */
+}
+
+.heroCard {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-4);
+  padding: 1.75rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroTopRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.heroLeft {
+  flex: 1;
+}
+
+.heroBadges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.badgeIcse {
+  background: var(--red-soft);
+  color: var(--red-deep);
+  border: 1.5px solid var(--red-deep);
+  border-radius: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.45rem;
+  text-transform: uppercase;
+}
+
+.badgeLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.gradeWatermark {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--line);
+  line-height: 1;
+  margin-bottom: -0.5rem;
+  letter-spacing: -0.02em;
+  user-select: none;
+  pointer-events: none;
+}
+
+.heroTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0.5rem 0 1.25rem;
+  line-height: 1.4;
+}
+
+.heroStats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.statNumber {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.65rem;
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.heroMascot {
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: var(--shadow-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  overflow: hidden;
+}
+
+.heroMascot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Progress */
+.progressSection {
+  margin-top: 0.25rem;
+}
+
+.progressLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.progressDots {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  flex-shrink: 0;
+}
+
+.dot.completed {
+  background: var(--ink);
+}
+
+.dot.current {
+  background: var(--red);
+}
+
+.dot.upcoming {
+  background: var(--paper);
+}
+
+/* Filter Bar */
+.filterBar {
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filterLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.1s;
+  white-space: nowrap;
+  box-shadow: var(--shadow-1);
+}
+
+.filterBtn:hover {
+  box-shadow: var(--shadow-2);
+  transform: translate(-1px, -1px);
+}
+
+.filterBtn.active {
+  background: var(--ink);
+  color: var(--butter);
+}
+
+.filterBtn.audioBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.filterBtn.audioBtn::before {
+  content: "♪";
+  font-size: 0.8rem;
+}
+
+.sortBtn {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: var(--shadow-1);
+  white-space: nowrap;
+}
+
+.sortBtn::after {
+  content: "▾";
+  font-size: 0.85rem;
+}
+
+/* Chapters Grid */
+.chaptersGrid {
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Chapter Card */
+.chapterCard {
+  background: var(--green-soft);
+  border: 2px solid var(--ink);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-2);
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.1s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.chapterCard:hover {
+  box-shadow: var(--shadow-3);
+  transform: translate(-1px, -1px);
+}
+
+.chapterCard.redCard {
+  background: var(--red-soft);
+  border-color: var(--red);
+}
+
+.chapterCard.whiteCard {
+  background: var(--paper);
+}
+
+.chapterCard.poemCard {
+  background: var(--yellow-soft);
+}
+
+.cardMeta {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.checkIcon {
+  width: 14px;
+  height: 14px;
+  background: var(--green);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.checkIcon::after {
+  content: "✓";
+  color: white;
+  font-size: 0.55rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.upNextBadge {
+  color: var(--red-deep);
+  font-weight: 800;
+}
+
+.cardTitleKannada {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.cardTitleEn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.timePill {
+  background: var(--yellow);
+  border: 1.5px solid var(--ink);
+  border-radius: 2rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--ink);
+  padding: 0.15rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.timePill::before {
+  content: "⏱";
+  font-size: 0.6rem;
+}
+
+.iconBtn {
+  width: 22px;
+  height: 22px;
+  background: var(--blue-soft);
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: var(--blue);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.continueBtn {
+  background: var(--red);
+  border: 1.5px solid var(--ink);
+  border-radius: 2rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--paper);
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-1);
+}
+
+.audioPill {
+  background: var(--blue-soft);
+  border: 1.5px solid var(--ink);
+  border-radius: 2rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--blue);
+  padding: 0.15rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.audioPill::before {
+  content: "♪";
+  font-size: 0.65rem;
+}
+
+.poemPill {
+  background: var(--yellow);
+  border: 1.5px solid var(--ink);
+  border-radius: 2rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--ink);
+  padding: 0.15rem 0.5rem;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .chaptersGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .heroCard {
+    padding: 1.25rem 1.1rem;
+  }
+
+  .gradeWatermark {
+    font-size: 3rem;
+  }
+
+  .heroMascot {
+    width: 76px;
+    height: 76px;
+    font-size: 2.2rem;
+  }
+
+  .heroStats {
+    gap: 1.25rem;
+  }
+
+  .statNumber {
+    font-size: 1.2rem;
+  }
+
+  .chaptersGrid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem 1rem;
+  }
+
+  .heroSection {
+    /* padding: 0 1rem 1rem; */
+  }
+
+  .filterBar {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .breadcrumb {
+    padding: 0.75rem 1rem;
+  }
+}
