@@ -46,15 +46,13 @@ export default function Header() {
 
         <div className={`site-drawer${open ? " is-open" : ""}`}>
           <nav className="nav-links" aria-label="Primary navigation">
-            <a className="on" href="/chapter" onClick={() => setOpen(false)}>
-              Chapter
-            </a>
-            <a href="/lessons" onClick={() => setOpen(false)}>
+        
+            <a className="on" href="/lessons" onClick={() => setOpen(false)}>
               Curriculum
             </a>
-            {/* <a href="/chapter" onClick={() => setOpen(false)}>
+            <a href="/chapter" onClick={() => setOpen(false)}>
               Chapter
-            </a> */}
+            </a>
             <a href="/lessons?type=worksheet" onClick={() => setOpen(false)}>
               Worksheets
             </a>
