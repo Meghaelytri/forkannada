@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { getLessonEnglishTitle, getLessonKannadaTitle } from "@/lib/lesson-heading";
-import { Lesson } from "@/types/lesson";
+import { getLessonEnglishTitle, getLessonKannadaTitle, lessonHref } from "@/lib/lesson-heading";
+import { Curriculum, Lesson } from "@/types/lesson";
 
 type Props = {
   lesson: Lesson;
+  curriculum?: Curriculum;
 };
 
 function combineLabels(board?: string, grade?: string) {
@@ -42,17 +43,16 @@ function ArrowIcon() {
   );
 }
 
-export default function LessonCard({ lesson }: Props) {
-  const image = lesson._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-  const terms = lesson._embedded?.["wp:term"]?.flat() || [];
-  const board = terms.find((term) => term.taxonomy === "board")?.name;
-  const grade = terms.find((term) => term.taxonomy === "grade")?.name;
-  const type = terms.find((term) => term.taxonomy === "lesson_type")?.name;
+export default function LessonCard({ lesson, curriculum }: Props) {
+  const image = lesson.featuredImage?.source_url;
+  const board = curriculum?.board[0]?.name;
+  const grade = curriculum?.grade[0]?.name;
+  const type = lesson.lessonType?.name;
   const kannadaTitle = getLessonKannadaTitle(lesson);
   const englishTitle = getLessonEnglishTitle(lesson);
 
   return (
-    <Link href={`/lesson/${lesson.slug}`} className="lesson-card">
+    <Link href={lessonHref(lesson)} className="lesson-card">
       {image ? (
         <img src={image} alt={kannadaTitle} className="lesson-card-image" />
       ) : (
@@ -66,7 +66,6 @@ export default function LessonCard({ lesson }: Props) {
         </div>
 
         <h3 className="lesson-card-title">{kannadaTitle}</h3>
-
         {englishTitle && <p className="lesson-card-english">{englishTitle}</p>}
 
         <p className="lesson-card-description">Open the lesson notes, practice material, and reading support.</p>

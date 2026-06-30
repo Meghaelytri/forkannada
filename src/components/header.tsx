@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 function MenuIcon() {
@@ -28,10 +29,10 @@ export default function Header() {
     <header className="site-header">
       <div className={`site-nav${open ? " is-open" : ""}`}>
         <div className="site-nav-top">
-          <a className="brand" href="/" onClick={() => setOpen(false)}>
+          <Link className="brand" href="/" onClick={() => setOpen(false)}>
             <span className="brand-glyph">ಕ</span>
             <span className="brand-word">For Kannada</span>
-          </a>
+          </Link>
 
           <button
             aria-expanded={open}
@@ -46,37 +47,33 @@ export default function Header() {
 
         <div className={`site-drawer${open ? " is-open" : ""}`}>
           <nav className="nav-links" aria-label="Primary navigation">
-        
-            <a className="on" href="/lessons" onClick={() => setOpen(false)}>
+            <Link className="on" href="/lessons" onClick={() => setOpen(false)}>
               Curriculum
-            </a>
-            <a href="/chapter" onClick={() => setOpen(false)}>
-              Chapter
-            </a>
-            <a href="/gradehub" onClick={() => setOpen(false)}>
+            </Link>
+            <Link href="/gradehub" onClick={() => setOpen(false)}>
               Grade Hub
-            </a>
-            <a href="/lessons?type=worksheet" onClick={() => setOpen(false)}>
+            </Link>
+            <Link href="/lessons?type=worksheet" onClick={() => setOpen(false)}>
               Worksheets
-            </a>
-            <a href="/lessons?type=gadegalu" onClick={() => setOpen(false)}>
+            </Link>
+            <Link href="/lessons?type=gadegalu" onClick={() => setOpen(false)}>
               Gadegalu
-            </a>
-            <a href="/lessons?type=essay" onClick={() => setOpen(false)}>
+            </Link>
+            <Link href="/lessons?type=essay" onClick={() => setOpen(false)}>
               Essays
-            </a>
-            <a href="/lessons?type=letter" onClick={() => setOpen(false)}>
+            </Link>
+            <Link href="/lessons?type=letter" onClick={() => setOpen(false)}>
               Letters
-            </a>
-            <a href="/lessons?type=grammar" onClick={() => setOpen(false)}>
+            </Link>
+            <Link href="/lessons?type=grammar" onClick={() => setOpen(false)}>
               Grammar
-            </a>
+            </Link>
           </nav>
 
           <div className="nav-actions">
-            <a className="nav-search" href="/lessons" onClick={() => setOpen(false)}>
+            <Link className="nav-search" href="/lessons" onClick={() => setOpen(false)}>
               Search
-            </a>
+            </Link>
             <a className="nav-cta" href="#free-pack" onClick={() => setOpen(false)}>
               Get free pack
             </a>

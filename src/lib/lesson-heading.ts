@@ -16,14 +16,17 @@ export function getLessonKannadaTitle(lesson: Lesson) {
 }
 
 export function getLessonEnglishTitle(lesson: Lesson) {
-  return stripHtml(lesson.english_title || lesson.meta?.english_title || slugToTitle(lesson.slug));
+  return stripHtml(lesson.english_title || lesson.meta?.english_title || "");
 }
 
-function slugToTitle(slug: string) {
-  const text = String(slug || "")
-    .replace(/[-_]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-  if (!text) return "";
-  return text.replace(/\b\w/g, (char) => char.toUpperCase());
+export function lessonHref(lesson: Lesson) {
+  return `/lesson/${decodeSlug(lesson.slug)}`;
+}
+
+function decodeSlug(slug: string) {
+  try {
+    return decodeURIComponent(slug);
+  } catch {
+    return slug;
+  }
 }

@@ -592,11 +592,16 @@ select {
 .home-footer {
   background: var(--paper);
   border-top: 3px solid var(--ink);
+  width: 100%;
+  margin: 0 auto;
+}
+.footer-w{
   display: grid;
   gap: 32px;
   grid-template-columns: 1.5fr repeat(3, 1fr);
-  margin-top: 0;
-  padding: 40px 32px;
+  margin: 0 auto;
+  padding: 50px 18px;
+  max-width: 1220px;
 }
 
 .home-footer-brand .brand {
@@ -1050,9 +1055,6 @@ select {
 
 /* Page wrapper */
 .page-frame {
-  width: 1220px;
-  max-width: 1220px;
-  margin: 0 auto;
   border-radius: var(--r-4);
   overflow: hidden;
 /* overflow:visible */
@@ -1170,6 +1172,8 @@ select {
 
 /* Breadcrumb */
 .fk-breadcrumb {
+  max-width: 1220px;
+  margin: 0 auto;
   padding: 6px 32px 8px;
   font-family: var(--mono);
   font-size: 11px;
@@ -1185,14 +1189,15 @@ select {
 
 /* Hero */
 .ch-hero {
-  margin: 0 20px 24px;
   background: var(--paper);
   border: 3px solid var(--ink);
   border-radius: var(--r-4);
-  padding: 36px 36px 0;
+  padding: 36px 20px 0;
   box-shadow: var(--shadow-4);
   overflow: hidden;
   position: relative;
+  max-width: 1220px;
+  margin: 0 auto;
   /* z-index:1; */
 }
 
@@ -1202,6 +1207,8 @@ select {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  max-width: 1220px;
+  margin: 0 auto;
 }
 
 .ch-meta-row {
@@ -1287,7 +1294,7 @@ select {
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
-  padding: 24px 36px;
+  padding: 24px 23px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -1320,7 +1327,9 @@ select {
   /* grid-template-columns: 1fr 320px;  */
    grid-template-columns: minmax(0, 1fr) 320px;
   gap: 24px;
-  padding: 24px 36px 36px;
+  padding: 24px 23px 36px;
+  max-width: 1220px;
+  margin: 0 auto;
 }
 
 /* Article content */
@@ -1451,6 +1460,12 @@ select {
   border-radius: var(--r-2);
   background: var(--ink);
   color: var(--butter);
+}
+
+.lesson-audio-player {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
 }
 
 .play-btn {
@@ -1680,9 +1695,8 @@ select {
     top: 12px;
   }
 
-  .home-footer {
-    gap: 18px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .footer-w {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
     padding: 24px 16px;
   }
 
